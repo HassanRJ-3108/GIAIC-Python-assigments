@@ -30,4 +30,4 @@ if __name__ == '__main__':
 ```
 
 ## Solution
-Solution is [here](/index.py)
+Solution is [here](index.py)
