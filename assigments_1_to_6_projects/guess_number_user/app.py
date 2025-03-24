@@ -2,7 +2,6 @@ import streamlit as st
 import random
 import time
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Set page configuration
 st.set_page_config(page_title="Guess the Number (User)", page_icon="🎮")
