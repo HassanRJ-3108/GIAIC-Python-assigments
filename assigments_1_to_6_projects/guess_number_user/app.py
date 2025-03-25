@@ -219,11 +219,11 @@ if not st.session_state.game_over:
 # Game over state
 if st.session_state.game_over:
     # Display game result
-   if st.session_state.win:
+    if st.session_state.win:
         st.balloons()
         st.success(f"🎉 Congratulations! You guessed the number {st.session_state.secret_number} correctly!")
         st.markdown(f"You used {st.session_state.attempts} attempts.")
-   else:
+    else:
         st.error(f"😢 Game over! You've used all {st.session_state.max_attempts} attempts.")
         st.markdown(f"The secret number was **{st.session_state.secret_number}**.")
     
@@ -231,3 +231,4 @@ if st.session_state.game_over:
     if st.button("Play Again"):
         reset_game()
         st.rerun()
+
