@@ -172,18 +172,20 @@ st.markdown(f"### Attempts: {st.session_state.attempts}/{st.session_state.max_at
 progress = st.session_state.attempts / st.session_state.max_attempts
 st.progress(progress)
 
+
 # Display previous guesses
 if st.session_state.guesses:
     st.markdown("### Previous Guesses")
     
     # Text list of guesses with feedback
-   for i, guess in enumerate(st.session_state.guesses):
+    for i, guess in enumerate(st.session_state.guesses):  # Yeh line ab sahi indent hui hai
         if guess < st.session_state.secret_number:
             st.markdown(f"Guess #{i+1}: **{guess}** is too low")
         elif guess > st.session_state.secret_number:
             st.markdown(f"Guess #{i+1}: **{guess}** is too high")
         else:
             st.markdown(f"Guess #{i+1}: **{guess}** is correct! 🎉")
+
 
 # Game in progress
 if not st.session_state.game_over:
