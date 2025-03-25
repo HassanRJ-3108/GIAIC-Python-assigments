@@ -182,7 +182,7 @@ if st.session_state.guesses:
             st.markdown(f"Guess #{i+1}: **{guess}** is too low")
         elif guess > st.session_state.secret_number:
             st.markdown(f"Guess #{i+1}: **{guess}** is too high")
-       else:
+        else:
             st.markdown(f"Guess #{i+1}: **{guess}** is correct! 🎉")
 
 # Game in progress
