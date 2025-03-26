@@ -2,13 +2,14 @@ import streamlit as st
 import random
 import time
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Set page configuration
 st.set_page_config(page_title="Guess the Number (User)", page_icon="🎮")
-
+ 
 st.title("Guess the Number Game")
 st.subheader("Can you guess the secret number?")
-
+ 
 # Initialize session state variables
 if 'secret_number' not in st.session_state:
     st.session_state.secret_number = random.randint(1, 100)
@@ -17,7 +18,7 @@ if 'attempts' not in st.session_state:
 if 'max_attempts' not in st.session_state:
     st.session_state.max_attempts = 10
 if 'guesses' not in st.session_state:
-    st.session_state.guesses = []
+     st.session_state.guesses = []
 if 'game_over' not in st.session_state:
     st.session_state.game_over = False
 if 'win' not in st.session_state:
@@ -144,7 +145,7 @@ def get_hint():
         # Narrow the range by 25%
         range_size = st.session_state.max_range - st.session_state.min_range
         if num < (st.session_state.min_range + range_size // 2):
-            return f"The number is in the lower half of the current range."
+           return f"The number is in the lower half of the current range."
         else:
             return f"The number is in the upper half of the current range."
 
@@ -171,18 +172,20 @@ st.markdown(f"### Attempts: {st.session_state.attempts}/{st.session_state.max_at
 progress = st.session_state.attempts / st.session_state.max_attempts
 st.progress(progress)
 
+
 # Display previous guesses
 if st.session_state.guesses:
     st.markdown("### Previous Guesses")
     
     # Text list of guesses with feedback
-    for i, guess in enumerate(st.session_state.guesses):
+    for i, guess in enumerate(st.session_state.guesses):  # Yeh line ab sahi indent hui hai
         if guess < st.session_state.secret_number:
             st.markdown(f"Guess #{i+1}: **{guess}** is too low")
         elif guess > st.session_state.secret_number:
             st.markdown(f"Guess #{i+1}: **{guess}** is too high")
         else:
             st.markdown(f"Guess #{i+1}: **{guess}** is correct! 🎉")
+
 
 # Game in progress
 if not st.session_state.game_over:
@@ -228,3 +231,4 @@ if st.session_state.game_over:
     if st.button("Play Again"):
         reset_game()
         st.rerun()
+
