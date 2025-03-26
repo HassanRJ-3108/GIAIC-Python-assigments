@@ -1,0 +1,4 @@
+streamlit>=1.30.0
+qrcode>=7.4.2
+pillow>=10.2.0
+opencv-python>=4.9.0
